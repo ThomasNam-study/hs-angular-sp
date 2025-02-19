@@ -1,0 +1,30 @@
+<form #form="ngForm" (ngSubmit)="onSubmitForm(form)">
+  <h2>Login</h2>
+
+  <div class="control-row">
+    <div class="control no-margin">
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" ngModel #email="ngModel" required maxlength="100" />
+    </div>
+
+    <div class="control no-margin">
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" ngModel #password="ngModel" required minlength="3" maxlength="100" />
+    </div>
+
+    <button class="button" type="submit">Login</button>
+  </div>
+
+  @if (email.dirty && email.invalid) {
+    <p class="control-error">
+      Invalid email address entered.
+    </p>
+  }
+
+  @if (password.dirty && password.invalid) {
+    <p class="control-error">
+      잘못된 패스워드 입니다.
+    </p>
+  }
+  
+</form>
